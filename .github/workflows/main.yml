@@ -58,7 +58,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install flixel-addons 3.2.2
           haxelib install tjson
-          haxelib install hxvlc
+          haxelib install hxvlc 1.7.1
           haxelib install hxjsonast
           haxelib install hscript
           haxelib install compiletime
@@ -78,6 +78,7 @@ jobs:
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
           haxelib set flixel-addons 3.2.2
+          haxelib set hxvlc 1.7.1
       
       - name: Compile
         run: haxelib run lime build android
