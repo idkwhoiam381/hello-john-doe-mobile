@@ -16,12 +16,19 @@ class OptionsState extends MusicBeatState
 		switch(label) {
 			case 0:
                 openSubState(new options.ControlsSubState());
+		#if mobile
+		removeVirtualPad();
+		#end
 			case 1:
                 openSubState(new options.VisualsUISubState());
+		#if mobile
+		removeVirtualPad();
+		#end
 			case 2:
                 openSubState(new options.GameplaySettingsSubState());
-
-
+		#if mobile
+		removeVirtualPad();
+		#end
 		}
 	}
 
@@ -66,12 +73,20 @@ class OptionsState extends MusicBeatState
 		changeSelection();
 		ClientPrefs.saveSettings();
 
+		#if mobile
+                addVirtualPad(UP_DOWN, A_B_X_Y);
+                #end
+		
 		super.create();
 	}
 
 	override function closeSubState() {
 		super.closeSubState();
 		ClientPrefs.saveSettings();
+		#if mobile
+		removeVirtualPad();
+                addVirtualPad(UP_DOWN, A_B_X_Y);
+                #end
 	}
 
     override function update(elapsed:Float) {
@@ -85,7 +100,19 @@ class OptionsState extends MusicBeatState
             changeSelection(1);
         }
 
-        if (controls.BACK) {
+        #if mobile
+	 if (MusicBeatState.virtualPad.buttonX.justPressed)
+		{
+			removeVirtualPad();
+			openSubState(new mobile.MobileControlsSubState());
+		}
+		if (MusicBeatState.virtualPad.buttonY.justPressed) {
+			removeVirtualPad();
+			openSubState(new mobile.AndroidSettingsSubState());
+		}
+	#end
+	    
+	if (controls.BACK) {
             FlxG.sound.play(Paths.sound('cancelMenu'));
             if(onPlayState)
             {
