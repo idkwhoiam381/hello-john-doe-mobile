@@ -55,7 +55,7 @@ class CopyState extends MusicBeatState
 			loadingImage.setGraphicSize(0, FlxG.height);
 			loadingImage.updateHitbox();
 			loadingImage.screenCenter();
-			add(loadingImage);
+			//add(loadingImage);
 
 			bottomBG = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
 			bottomBG.alpha = 0.6;
