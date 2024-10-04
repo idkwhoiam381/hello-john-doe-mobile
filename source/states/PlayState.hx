@@ -291,8 +291,6 @@ class PlayState extends MusicBeatState
 
 		#if debug Paths.clearUnusedMemory(); #end
 
-		FlxG.mouse.visible = false;
-
 		startCallback = startCountdown;
 		endCallback = endSong;
 
@@ -559,6 +557,11 @@ class PlayState extends MusicBeatState
 		uiGroup.cameras = [camHUD];
 		noteGroup.cameras = [camHUD];
 		comboGroup.cameras = [camHUD];
+		
+		#if mobile
+                addMobileControls(false);
+                MusicBeatState.mobileControls.visible = false;
+                #end
 
 		startingSong = true;
 
@@ -948,6 +951,10 @@ class PlayState extends MusicBeatState
 		if(ret != LuaUtils.Function_Stop) {
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
+			#if mobile
+		        MusicBeatState.mobileControls.visible = true;
+		        #end
+			
 			generateStaticArrows(0);
 			generateStaticArrows(1);
 			for (i in 0...playerStrums.length) {
@@ -1650,7 +1657,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 		{
 			var ret:Dynamic = callOnScripts('onPause', null, true);
 			if(ret != LuaUtils.Function_Stop) {
@@ -2307,6 +2314,10 @@ class PlayState extends MusicBeatState
 
 		deathCounter = 0;
 		seenCutscene = false;
+		
+		#if mobile
+		        MusicBeatState.mobileControls.visible = false;
+		        #end
 
 		#if ACHIEVEMENTS_ALLOWED
 		var weekNoMiss:String = WeekData.getWeekFileName() + '_nomiss';
