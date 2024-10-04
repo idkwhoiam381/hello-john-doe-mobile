@@ -62,6 +62,11 @@ class CreditsState extends MusicBeatState
 		changeSelection();
 		super.create();
 		FlxG.camera.zoom += 0.15;
+
+		#if mobile
+                addVirtualPad(UP_DOWN, A_B);
+                addVirtualPadCamera(false);
+                #end
 	}
 
 	var holdTime:Float = 0;
