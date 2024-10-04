@@ -321,6 +321,8 @@ class PlayMenu extends MusicBeatSubstate
 
 	override function create()
 	{
+		noCheckPress();
+			
 		cameras = [CrossUtil.quickCreateCam()];
 		//menuState = IN;
 
