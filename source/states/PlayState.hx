@@ -951,6 +951,7 @@ class PlayState extends MusicBeatState
 		if(ret != LuaUtils.Function_Stop) {
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
+			FlxG.mouse.visible = false;
 			#if mobile
 		        MusicBeatState.mobileControls.visible = true;
 		        #end
