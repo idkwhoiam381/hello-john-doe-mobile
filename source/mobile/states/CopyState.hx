@@ -55,7 +55,7 @@ class CopyState extends MusicBeatState
 			loadingImage.setGraphicSize(0, FlxG.height);
 			loadingImage.updateHitbox();
 			loadingImage.screenCenter();
-			//add(loadingImage);
+			add(loadingImage);
 
 			bottomBG = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
 			bottomBG.alpha = 0.6;
@@ -100,7 +100,7 @@ class CopyState extends MusicBeatState
 					File.saveContent('logs/' + Date.now().toString().replace(' ', '-').replace(':', "'") + '-CopyState' + '.txt', failedFiles.join('\n'));
 				}
 				canUpdate = false;
-				FlxG.sound.play(Paths.sound('confirmMenu')).onComplete = () -> {
+				FlxG.sound.play(Paths.sound('confirm')).onComplete = () -> {
 					MusicBeatState.switchState(new InitState());
 				};
 			}
