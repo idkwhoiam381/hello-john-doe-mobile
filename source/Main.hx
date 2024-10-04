@@ -13,6 +13,7 @@ import flixel.FlxState;
 import haxe.io.Path;
 import openfl.Assets;
 import openfl.Lib;
+import mobile.states.CopyState;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.display.StageScaleMode;
@@ -42,7 +43,7 @@ class Main extends Sprite
 	var game = {
 		width: 960, // WINDOW width
 		height: 720, // WINDOW height
-		initialState: InitState, // initial game state
+		initialState: CopyState, // initial game state
 		zoom: -1.0, // game state bounds
 		framerate: 60, // default framerate
 		skipSplash: true, // if the default flixel splash screen should be skipped
