@@ -57,6 +57,11 @@ class Paths
 
 		// run the garbage collector for good measure lmfao
 		System.gc();
+		#if cpp
+		cpp.NativeGc.run(true);
+		#elseif hl
+		hl.Gc.major();
+		#end
 	}
 
 	// define the locally tracked assets
@@ -470,7 +475,7 @@ class Paths
 
 	#if MODS_ALLOWED
 	inline static public function mods(key:String = '') {
-		return 'mods/' + key;
+		return Sys.getCwd() + 'mods/' + key;
 	}
 
 	inline static public function modsFont(key:String) {
@@ -532,7 +537,7 @@ class Paths
 			if(FileSystem.exists(fileToCheck))
 				return fileToCheck;
 		}
-		return 'mods/' + key;
+		return Sys.getCwd() + 'mods/' + key;
 	}
 	#end
 
