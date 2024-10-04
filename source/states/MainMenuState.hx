@@ -89,11 +89,9 @@ class MainMenuState extends MusicBeatState
 		// Paths.clearStoredMemory();
 		// Paths.clearUnusedMemory();
 		//if(FlxG.sound.music == null) 
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-
-
-			
-
+		FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+                FlxG.mouse.visible = false;
+		
 		#if MODS_ALLOWED
 		Mods.pushGlobalMods();
 		#end
