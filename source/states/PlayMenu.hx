@@ -506,6 +506,7 @@ class PlayMenu extends MusicBeatSubstate
 			return;
 		}
 		killControls();
+		FlxG.mouse.visible = false;
 		LoadingState.loadAndSwitchState(new PlayState());
 				
 		#if (MODS_ALLOWED && DISCORD_ALLOWED)
