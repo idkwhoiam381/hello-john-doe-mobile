@@ -38,6 +38,8 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		cam = CrossUtil.quickCreateCam();
 
+		FlxG.mouse.visible = false;
+		
 		pauseMusic = new FlxSound();
 
 		instance = this;
@@ -92,6 +94,7 @@ class PauseSubState extends MusicBeatSubstate
 		Mods.loadTopMod();
 		openSubState(new PlayMenu(OUT));
 		PlayMenu.finishCallback = ()->FlxG.switchState(()->new PlayMenu());
+		FlxG.mouse.visible = false;
 		// if(PlayState.isStoryMode)
 		// 	MusicBeatState.switchState(new StoryMenuState());
 		// else 
