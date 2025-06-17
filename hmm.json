@@ -11,8 +11,8 @@
       "name": "openfl",
       "type": "git",
       "dir": null,
-      "ref": "main",
-      "url": "https://github.com/Yugisgiy/openfl"
+      "ref": null,
+      "url": "https://github.com/th2l-devs/openfl"
     },
     {
       "name": "flixel",
