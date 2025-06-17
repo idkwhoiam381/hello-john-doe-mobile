@@ -44,26 +44,8 @@ jobs:
       
       - name: Install Haxelib
         run: |
-          haxelib setup ~/haxelib
-          haxelib git hxcpp https://github.com/mcagabe19-stuff/hxcpp.git
-          haxelib install openfl
-          haxelib git lime https://github.com/mcagabe19-stuff/lime.git
-          haxelib install flixel
-          haxelib install flixel-tools
-          haxelib install flixel-ui
-          haxelib install flixel-addons 3.2.2
-          haxelib install tjson
-          haxelib install hxvlc 1.7.1
-          haxelib install hxjsonast
-          haxelib install hscript
-          haxelib install compiletime
-          haxelib install flixel-screenshot-plugin
-          haxelib git flxanimate https://github.com/beihu235/flxanimate
-          haxelib git SScript https://github.com/mayo78/SScript
-          haxelib git linc_luajit https://github.com/mcagabe19-stuff/linc_luajit-rewriten
-          haxelib install extension-androidtools
-          haxelib install hxcpp-debug-server
-          haxelib list
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
       
       - name: Setup Lime
         run: |
