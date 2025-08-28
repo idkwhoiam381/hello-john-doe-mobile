@@ -51,7 +51,9 @@ jobs:
           add-to-path: false
 
       - name: Install Libraries
-        run: ${{ inputs.setupCommand }}
+        run: |
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
 
       - name: Configure Android
         if: inputs.system == 'Android'
@@ -60,6 +62,8 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT ${{ steps.setup-ndk.outputs.ndk-path }}
           haxelib run lime config JAVA_HOME $JAVA_HOME_17_X64
           haxelib run lime config ANDROID_SETUP true
+          haxelib set flixel-addons 3.2.2
+          haxelib set hxvlc 1.7.1
 
       - name: Compile
         run: haxelib run lime build ${{ inputs.buildArgs }}
