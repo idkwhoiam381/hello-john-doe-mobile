@@ -89,8 +89,8 @@
       "name": "linc_luajit",
       "type": "git",
       "dir": null,
-      "ref": "main",
-      "url": "https://github.com/mcagabe19/linc_luajit-rewriten"
+      "ref": "master",
+      "url": "https://github.com/AliAlafandy/linc_luajit"
     },
     {
       "name": "hxvlc",
