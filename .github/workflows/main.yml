@@ -20,6 +20,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
+      - name: Setup Android NDK
+        id: setup-ndk
+        uses: nttld/setup-ndk@main
+        with:
+          ndk-version: r27c
+
       - name: Setup Java JDK
         uses: actions/setup-java@main
         with:
@@ -44,6 +50,7 @@ jobs:
       
       - name: Install Haxelib
         run: |
+          haxelib setup ~/haxelib
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
       
@@ -56,6 +63,8 @@ jobs:
           haxelib run lime config ANDROID_SETUP true
           haxelib set flixel-addons 3.2.2
           haxelib set hxvlc 1.7.1
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       
       - name: Compile
         run: haxelib run lime build android -final
@@ -85,19 +94,20 @@ jobs:
             } catch (error) {
             	console.log(error.message);
             }
+
       - name: Save Current Cache
         id: cache-release-build-android-save
         uses: actions/cache/save@main
         with:
           path: |
-            ~/haxelib
-            ~/.gradle
-            export/release/android/haxe
-            export/release/android/obj
+            .haxelib/
+            export/release/android/haxe/
+            export/release/android/obj/
           key: cache-android-build
       
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
           name: buildAndroid
-          path: export/release/android/bin/app/build/outputs/apk/release/*.apk
+          path: export/release/android/bin/app/build/outputs/apk/debug
+          if-no-files-found: warn
