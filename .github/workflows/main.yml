@@ -58,7 +58,7 @@ jobs:
           haxelib set hxvlc 1.7.1
       
       - name: Compile
-        run: haxelib run lime build android
+        run: haxelib run lime build android -final
       
       - name: Clear Previous Cache
         uses: actions/github-script@main
