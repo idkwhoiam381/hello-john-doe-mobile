@@ -64,11 +64,6 @@
       "version": null
     },
     {
-      "name": "flixel-screenshot-plugin",
-      "type": "haxelib",
-      "version": null
-    },
-    {
       "name": "hscript",
       "type": "haxelib",
       "version": "2.6.0"
@@ -83,14 +78,14 @@
     {
       "name": "hxvlc",
       "type": "haxelib",
-      "version": "1.7.1"
+      "version": "1.9.3"
     },
     {
       "name": "flxanimate",
       "type": "git",
       "dir": null,
-      "ref": "master",
-      "url": "https://github.com/beihu235/flxanimate"
+      "ref": "dev",
+      "url": "https://github.com/ShadowMario/flxanimate.git"
     }
   ]
 }
