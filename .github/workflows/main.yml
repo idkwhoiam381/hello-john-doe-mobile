@@ -47,6 +47,13 @@ jobs:
             export/release/android/haxe
             export/release/android/obj
           key: cache-android-build
+          
+       - name: Upload Android Manifest
+         if: always()
+         uses: actions/upload-artifact@v3
+         with:
+           name: android-manifest
+           path: export/release/android/bin/app/src/main/AndroidManifest.xml
       
       - name: Install Haxelib
         run: |
@@ -104,7 +111,7 @@ jobs:
             export/release/android/haxe/
             export/release/android/obj/
           key: cache-android-build
-      
+
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
