@@ -106,16 +106,16 @@ jobs:
             export/release/android/obj/
           key: cache-android-build
 
-       - name: Upload Android Manifest
-         if: always()
-         uses: actions/upload-artifact@v3
-         with:
-           name: android-manifest
-           path: export/release/android/bin/app/src/main/AndroidManifest.xml
-
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
           name: buildAndroid
           path: export/release/android/bin/app/build/outputs/apk/debug
           if-no-files-found: warn
+
+       - name: Upload Android Manifest
+         if: always()
+         uses: actions/upload-artifact@v3
+         with:
+           name: android-manifest
+           path: export/release/android/bin/app/src/main/AndroidManifest.xml
