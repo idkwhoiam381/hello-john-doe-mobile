@@ -36,13 +36,6 @@ jobs:
         uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.3.6
-
-       - name: Upload Android Manifest
-         if: always()
-         uses: actions/upload-artifact@v3
-         with:
-           name: android-manifest
-           path: export/release/android/bin/app/src/main/AndroidManifest.xml
       
       - name: Restore Previous Cache
         id: cache-debug-build-android-restore
@@ -111,6 +104,13 @@ jobs:
             export/release/android/haxe/
             export/release/android/obj/
           key: cache-android-build
+
+       - name: Upload Android Manifest
+         if: always()
+         uses: actions/upload-artifact@v3
+         with:
+           name: android-manifest
+           path: export/release/android/bin/app/src/main/AndroidManifest.xml
 
       - name: Publish Artifact
         uses: actions/upload-artifact@main
