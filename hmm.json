@@ -2,17 +2,13 @@
   "dependencies": [
     {
       "name": "lime",
-      "type": "git",
-      "dir": null,
-      "ref": null,
-      "url": "https://github.com/th2l-devs/lime"
+      "type": "haxelib",
+      "version": "7.9.0"
     },
     {
       "name": "openfl",
-      "type": "git",
-      "dir": null,
-      "ref": null,
-      "url": "https://github.com/th2l-devs/openfl"
+      "type": "haxelib",
+      "version": "9.3.3"
     },
     {
       "name": "flixel",
@@ -21,10 +17,8 @@
     },
     {
       "name": "hxcpp",
-      "type": "git",
-      "dir": null,
-      "ref": null,
-      "url": "https://github.com/th2l-devs/hxcpp"
+      "type": "haxelib",
+      "version": "4.2.1"
     },
     {
       "name": "hxdiscord_rpc",
@@ -90,7 +84,7 @@
       "type": "git",
       "dir": null,
       "ref": "main",
-      "url": "https://github.com/mcagabe19/linc_luajit-rewriten"
+      "url": "https://github.com/idkwhoiam381/linc_luajit-rewriten"
     },
     {
       "name": "hxvlc",
