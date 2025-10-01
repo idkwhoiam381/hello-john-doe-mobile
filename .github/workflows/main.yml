@@ -20,16 +20,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
+      - name: Setup Android NDK
+        id: setup-ndk
+        uses: nttld/setup-ndk@main
+        with:
+          ndk-version: r21e
+
       - name: Setup Java JDK
         uses: actions/setup-java@main
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: 'zulu'
+          java-version: '11'
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.3.6
+          haxe-version: 4.2.5
       
       - name: Restore Previous Cache
         id: cache-debug-build-android-restore
@@ -44,6 +50,7 @@ jobs:
       
       - name: Install Haxelib
         run: |
+          haxelib setup ~/haxelib
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
       
@@ -58,7 +65,7 @@ jobs:
           haxelib set hxvlc 1.7.1
       
       - name: Compile
-        run: haxelib run lime build android
+        run: haxelib run lime build android -final
       
       - name: Clear Previous Cache
         uses: actions/github-script@main
