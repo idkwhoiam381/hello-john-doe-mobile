@@ -2,13 +2,15 @@
   "dependencies": [
     {
       "name": "lime",
-      "type": "haxelib",
-      "version": "8.0.2"
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/JuniorNovoa1/lime-android-git"
     },
     {
       "name": "openfl",
       "type": "haxelib",
-      "version": "9.3.3"
+      "version": "9.3.2"
     },
     {
       "name": "flixel",
@@ -17,8 +19,10 @@
     },
     {
       "name": "hxcpp",
-      "type": "haxelib",
-      "version": "4.2.1"
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/JuniorNovoa1/hxcpp-android"
     },
     {
       "name": "hxdiscord_rpc",
